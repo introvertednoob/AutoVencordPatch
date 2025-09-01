@@ -1,0 +1,5 @@
+vencordinstaller
+*.exe
+*.syso
+*.old
+*.DS_Store
