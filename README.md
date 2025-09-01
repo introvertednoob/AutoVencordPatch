@@ -7,7 +7,7 @@ On macOS, Vencord doesn't automatically patch itself when Discord updates, so th
 - Injects a ZSH script which automatically patches your Discord app when it updates
     - This can be located inside the installer .app, in VencordInstaller.app/Contents/Resources/
 - Adds a login item to make the ZSH script run on startup</br>
-**NOTE**: You can also run VencordInstaller.app directly to force-patch Vencord into Discord.
+**NOTE**: You can also run VencordInstaller.app directly to force-patch Vencord.
 
 ## Requirements
 All original requirements for building the official installer apply here.</br>
