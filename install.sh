@@ -10,6 +10,7 @@ mv VencordInstaller.app ../VencordInstaller.app
 
 cd ..
 cp vencordchecker/autovencordupdate.sh VencordInstaller.app/Contents/Resources/autovencordupdate.sh
+chmod +x VencordInstaller.app/Contents/Resources/autovencordupdate.sh
 cp vencordchecker/org.aaron.autovencordupdate.plist ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
 rm -rf /Applications/VencordInstaller.app
 mv VencordInstaller.app /Applications/VencordInstaller.app
