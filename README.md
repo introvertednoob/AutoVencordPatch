@@ -1,4 +1,4 @@
-# Vencord Auto Updater (macOS)
+# Vencord Auto Patcher (macOS)
 An efficient program which patches Vencord whenever Discord updates on macOS.</br>
 On macOS, Vencord doesn't automatically patch itself when Discord updates, so this is a fix for that.
 

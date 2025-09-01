@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>org.aaron.vencordautoupdate</string>
+    <string>org.aaron.vencordautopatch</string>
 
     <key>ProgramArguments</key>
     <array>
         <string>/bin/zsh</string>
-        <string>/Applications/VencordInstaller.app/Contents/Resources/autovencordupdate.sh</string>
+        <string>/Applications/VencordInstaller.app/Contents/Resources/autovencordpatch.sh</string>
     </array>
 
     <key>RunAtLoad</key>
@@ -16,8 +16,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/vencordautoupdate.log</string>
+    <string>/tmp/vencordautopatch.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/vencordautoupdate.log</string>
+    <string>/tmp/vencordautopatch.log</string>
 </dict>
 </plist>

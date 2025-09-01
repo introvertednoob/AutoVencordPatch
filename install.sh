@@ -9,12 +9,12 @@ cp macos/icon.icns VencordInstaller.app/Contents/Resources/icon.icns
 mv VencordInstaller.app ../VencordInstaller.app
 
 cd ..
-cp autovencordupdate/autovencordupdate.sh VencordInstaller.app/Contents/Resources/autovencordupdate.sh
-chmod +x VencordInstaller.app/Contents/Resources/autovencordupdate.sh
-cp autovencordupdate/org.aaron.autovencordupdate.plist ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
+cp autovencordpatch/autovencordpatch.sh VencordInstaller.app/Contents/Resources/autovencordpatch.sh
+chmod +x VencordInstaller.app/Contents/Resources/autovencordpatch.sh
+cp autovencordpatch/org.aaron.autovencordpatch.plist ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
 rm -rf /Applications/VencordInstaller.app
 mv VencordInstaller.app /Applications/VencordInstaller.app
-launchctl unload ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
-launchctl load ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
+launchctl unload ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
+launchctl load ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
 
-echo "Installed AutoVencordUpdate"
+echo "Installed AutoVencordPatch"
