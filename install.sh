@@ -14,6 +14,7 @@ chmod +x VencordInstaller.app/Contents/Resources/autovencordupdate.sh
 cp vencordchecker/org.aaron.autovencordupdate.plist ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
 rm -rf /Applications/VencordInstaller.app
 mv VencordInstaller.app /Applications/VencordInstaller.app
+launchctl unload ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
 launchctl load ~/Library/LaunchAgents/org.aaron.autovencordupdate.plist
 
 echo "Installed AutoVencordUpdate"
