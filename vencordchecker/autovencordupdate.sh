@@ -1,7 +1,8 @@
 #!/bin/zsh
+cd -- "$(dirname "$0")"
 
 # Paths
-CACHE_FILE="$HOME/cached.txt"
+CACHE_FILE="cached.txt"
 DISCORD_JSON="/Applications/Discord.app/Contents/Resources/build_info.json"
 INSTALLER="/Applications/VencordInstaller.app"
 
