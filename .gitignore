@@ -1,4 +1,5 @@
 vencordinstaller
+*cached.txt
 *.exe
 *.syso
 *.old

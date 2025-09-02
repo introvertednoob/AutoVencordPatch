@@ -7,8 +7,7 @@
 
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/zsh</string>
-        <string>/Applications/VencordInstaller.app/Contents/Resources/autovencordpatch.sh</string>
+        <string>/Applications/VencordInstaller.app/Contents/Resources/autovencordpatch</string>
     </array>
 
     <key>RunAtLoad</key>
