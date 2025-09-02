@@ -113,6 +113,12 @@ func (di *DiscordInstall) patch() error {
 		Log.Info(di.path, "is already patched. Unpatching first...")
 		if err := di.unpatch(); err != nil {
 			if errors.Is(err, os.ErrPermission) {
+				cmd := exec.Command("osascript", "-e", `display notification "The App Management permission must be granted to run VencordInstaller." with title "VencordInstaller"`)
+				err_ := cmd.Run()
+				if err_ != nil {
+					panic(err_)
+				}
+				os.Exit(1)
 				return err
 			}
 			return errors.New("patch: Failed to unpatch already patched install '" + di.path + "':\n" + err.Error())

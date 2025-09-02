@@ -19,6 +19,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/manifoldco/promptui"
 	"os"
+	"os/exec"
 	"slices"
 	"strings"
 	"vencordinstaller/buildinfo"
@@ -164,11 +165,21 @@ func main() {
 
 func exitSuccess() {
 	color.HiGreen("✔ Success!")
+	cmd := exec.Command("osascript", "-e", `display notification "Successfully patched Vencord" with title "VencordInstaller"`)
+	err := cmd.Run()
+	if err != nil {
+		panic(err)
+	}
 	os.Exit(0)
 }
 
 func exitFailure() {
 	color.HiRed("❌ Failed!")
+	cmd := exec.Command("osascript", "-e", `display notification "Failed to patch Vencord" with title "VencordInstaller"`)
+	err := cmd.Run()
+	if err != nil {
+		panic(err)
+	}
 	os.Exit(1)
 }
 
