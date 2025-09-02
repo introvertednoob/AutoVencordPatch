@@ -96,7 +96,6 @@ func main() {
    (event.Op&fsnotify.Write == fsnotify.Write ||
     event.Op&fsnotify.Create == fsnotify.Create ||
     event.Op&fsnotify.Rename == fsnotify.Rename) {
-			//if filepath.Clean(event.Name) == discordJSON && event.Op&fsnotify.Write == fsnotify.Write {
 				currentVersion, err := readDiscordVersion()
 				if err != nil {
 					fmt.Println("Failed to read Discord version:", err)
@@ -105,6 +104,7 @@ func main() {
 				if currentVersion != cachedVersion {
 					cachedVersion = currentVersion
 					writeCachedVersion(cachedVersion)
+					time.Sleep(1.0 * time.Second)
 					runInstaller()
 				}
 			}
