@@ -44,8 +44,8 @@ func main() {
 		select {
 		case event := <-watcher.Events:
 			if filepath.Clean(event.Name) == discordJSON && event.Op&fsnotify.Create == fsnotify.Create {
-				time.Sleep(1.0 * time.Second)
 				fmt.Println("[" + time.Now().Format("2006-01-02 15:04:05") + "] Discord is updating, running Vencord installer...")
+				time.Sleep(1.0 * time.Second)
 				runInstaller()
 			}
 		case err := <-watcher.Errors:
