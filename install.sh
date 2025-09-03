@@ -19,7 +19,8 @@ cd ..
 cp autovencordpatch/org.aaron.autovencordpatch.plist ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
 rm -rf /Applications/VencordInstaller.app
 mv VencordInstaller.app /Applications/VencordInstaller.app
-launchctl unload ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
-launchctl load ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist
+launchctl unload ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist > /dev/null 2>&1
+launchctl load ~/Library/LaunchAgents/org.aaron.autovencordpatch.plist > /dev/null 2>&1
+open /Applications/VencordInstaller.app
 
 echo "Installed AutoVencordPatch"

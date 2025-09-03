@@ -6,10 +6,6 @@
  * Copyright (c) 2023 Vendicated and Vencord contributors
  */
 
-/*
- * Modified by Aaron Wijesinghe on 9/1/2025
- */
-
 package main
 
 import (
