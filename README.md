@@ -15,6 +15,7 @@ Go 1.25 is also recommended, but you can probably use a lower version instead.
 
 ## Installation
 Run install.sh through ZSH to install Vencord Auto Patcher.
+I may release a pre-built app with the launchd plist through GitHub Releases soon™.
 
 ## Credits
 Auto-patcher created by [Aaron Wijesinghe](https://github.com/introvertednoob)
