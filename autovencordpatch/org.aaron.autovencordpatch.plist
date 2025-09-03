@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>org.aaron.vencordautopatch</string>
+    <string>org.aaron.autovencordpatch</string>
 
     <key>ProgramArguments</key>
     <array>
