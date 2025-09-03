@@ -91,7 +91,7 @@ func main() {
 	for {
 		select {
 		case event := <-watcher.Events:
-			if filepath.Clean(event.Name) == discordJSON && event.Op&fsnotify.Write == fsnotify.Write {
+			if filepath.Clean(event.Name) == discordJSON && event.Op&fsnotify.Create == fsnotify.Create {
 				currentVersion, err := readDiscordVersion()
 				if err != nil {
 					fmt.Println("Failed to read Discord version:", err)
