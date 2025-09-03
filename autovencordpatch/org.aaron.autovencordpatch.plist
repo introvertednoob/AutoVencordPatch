@@ -15,8 +15,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/tmp/vencordautopatch.log</string>
+    <string>/tmp/autovencordpatch.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/vencordautopatch.log</string>
+    <string>/tmp/autovencordpatch.log</string>
 </dict>
 </plist>
