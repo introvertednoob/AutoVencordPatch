@@ -91,11 +91,7 @@ func main() {
 	for {
 		select {
 		case event := <-watcher.Events:
-			// Only care about writes to build_info.json
-			if filepath.Clean(event.Name) == discordJSON && 
-   (event.Op&fsnotify.Write == fsnotify.Write ||
-    event.Op&fsnotify.Create == fsnotify.Create ||
-    event.Op&fsnotify.Rename == fsnotify.Rename) {
+			if filepath.Clean(event.Name) == discordJSON && event.Op&fsnotify.Write == fsnotify.Write {
 				currentVersion, err := readDiscordVersion()
 				if err != nil {
 					fmt.Println("Failed to read Discord version:", err)
