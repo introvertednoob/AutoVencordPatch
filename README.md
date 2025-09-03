@@ -13,6 +13,9 @@ On macOS, Vencord doesn't automatically patch itself when Discord updates, so th
 All original requirements for building the official installer apply here.</br>
 Go 1.25 is also recommended, but you can probably use a lower version instead.
 
+## Installation
+Run install.sh through ZSH to install Vencord Auto Patcher.
+
 ## Credits
 Auto-patcher created by [Aaron Wijesinghe](https://github.com/introvertednoob)
 
