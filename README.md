@@ -7,11 +7,12 @@ On macOS, Vencord doesn't automatically patch itself when Discord updates, so th
 - VencordInstaller.app can patch Vencord without any user interaction, unlike the official installer
     - This is due to modifications made to the installer source. All references to UI in cli.go have been removed for optimization purposes.
 - Notifications are used to communicate success, failure, and errors
-- Very efficient, with <=0.1% of CPU and <5MB of RAM being used at idle
+- Very efficient, with <=0.1% of CPU and <5MB of RAM being used at idle</br>
+**NOTE: The only entirely supported OS for this project is macOS. Windows will still be supported for the one-click installer, but this may change at any time.**
 
 ## Requirements
 All original requirements for building the official installer apply here.</br>
-Go 1.25 is also recommended, but you can probably use a lower version instead.
+Go 1.25.1 is also recommended, but you can probably use a lower version instead.
 
 ## Installation
 Run install.sh through ZSH to install Vencord Auto Patcher.
