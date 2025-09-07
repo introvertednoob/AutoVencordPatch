@@ -16,8 +16,6 @@ import (
 	"github.com/manifoldco/promptui"
 	"os"
 	"os/exec"
-	"slices"
-	"strings"
 	"vencordinstaller/buildinfo"
 )
 
@@ -47,7 +45,7 @@ func main() {
 	var helpFlag = flag.Bool("help", false, "View usage instructions")
 	var versionFlag = flag.Bool("version", false, "View the program version")
 	var updateSelfFlag = flag.Bool("update-self", false, "Update me to the latest version")
-	var installFlag = flag.Bool("install", false, "Install Vencord")
+	var installFlag = flag.Bool("install", true, "Install Vencord")
 	var updateFlag = flag.Bool("repair", false, "Repair Vencord")
 	var uninstallFlag = flag.Bool("uninstall", false, "Uninstall Vencord")
 	var installOpenAsarFlag = flag.Bool("install-openasar", false, "Install OpenAsar")
@@ -94,30 +92,6 @@ func main() {
 	}
 
 	install, uninstall, update, installOpenAsar, uninstallOpenAsar := *installFlag, *uninstallFlag, *updateFlag, *installOpenAsarFlag, *uninstallOpenAsarFlag
-	switches := []*bool{&install, &update, &uninstall, &installOpenAsar, &uninstallOpenAsar}
-	if !slices.ContainsFunc(switches, func(b *bool) bool { return *b }) {
-		go func() {
-			<-SelfUpdateCheckDoneChan
-			if IsSelfOutdated {
-				Log.Warn("Your installer is outdated.")
-				Log.Warn("To update, select the 'Update Vencord Installer' option to update, or run with --update-self")
-			}
-		}()
-
-		choices := []string{
-			"Install Vencord",
-			"Repair Vencord",
-			"Uninstall Vencord",
-			"Install OpenAsar",
-			"Uninstall OpenAsar",
-			"View Help Menu",
-			"Update Vencord Installer",
-			"Quit",
-		}
-
-		*switches[slices.Index(choices, "Install Vencord")] = true
-
-	}
 
 	var err error
 	var errSilent error
@@ -188,66 +162,16 @@ func handlePromptError(err error) {
 }
 
 func PromptDiscord(action, dir, branch string) *DiscordInstall {
-	branch = "auto"
-	if branch == "auto" {
-		for _, b := range []string{"stable", "canary", "ptb"} {
-			for _, discord := range discords {
-				install := discord.(*DiscordInstall)
-				if install.branch == b {
-					return install
-				}
-			}
-		}
-		die("No Discord install found. Try manually specifying it with the --dir flag. Hint: snap is not supported")
-	}
-
-	if branch != "" {
+	for _, b := range []string{"stable", "canary", "ptb"} {
 		for _, discord := range discords {
 			install := discord.(*DiscordInstall)
-			if install.branch == branch {
+			if install.branch == b {
 				return install
 			}
 		}
-		die("Discord " + branch + " not found")
 	}
-
-	if dir != "" {
-		if discord := ParseDiscord(dir, branch); discord != nil {
-			return discord
-		} else {
-			die(dir + " is not a valid Discord install. Hint: snap is not supported")
-		}
-	}
-
-	items := SliceMap(discords, func(d any) string {
-		install := d.(*DiscordInstall)
-		//goland:noinspection GoDeprecation
-		return fmt.Sprintf("%s - %s%s", strings.Title(install.branch), install.path, Ternary(install.isPatched, " [PATCHED]", ""))
-	})
-	items = append(items, "Custom Location")
-
-	_, choice, err := (&promptui.Select{
-		Label: "Select Discord install to " + action + " (Press Enter to confirm)",
-		Items: items,
-	}).Run()
-	handlePromptError(err)
-
-	if choice != "Custom Location" {
-		return discords[slices.Index(items, choice)].(*DiscordInstall)
-	}
-
-	for {
-		custom, err := (&promptui.Prompt{
-			Label: "Custom Discord Location",
-		}).Run()
-		handlePromptError(err)
-
-		if di := ParseDiscord(custom, ""); di != nil {
-			return di
-		}
-
-		Log.Error("Invalid Discord install!")
-	}
+	die("No Discord install found. Try manually specifying it with the --dir flag. Hint: snap is not supported")
+	return nil
 }
 
 func InstallLatestBuilds() error {
