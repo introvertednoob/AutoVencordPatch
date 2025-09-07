@@ -1,6 +1,6 @@
 cd installer/
 go mod tidy
-go build --tags cli
+CGO_ENABLED=0 go build --tags cli
 mkdir -p VencordInstaller.app/Contents/MacOS
 mkdir -p VencordInstaller.app/Contents/Resources
 cp macos/Info.plist VencordInstaller.app/Contents/Info.plist
@@ -11,7 +11,7 @@ mv VencordInstaller.app ../VencordInstaller.app
 
 cd ../autovencordpatch
 go get github.com/fsnotify/fsnotify
-go build -o autovencordpatch autovencordpatch.go
+CGO_ENABLED=0 go build -o autovencordpatch autovencordpatch.go
 chmod +x autovencordpatch
 mv autovencordpatch ../VencordInstaller.app/Contents/Resources/autovencordpatch
 
