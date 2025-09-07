@@ -5,7 +5,7 @@ On macOS, Vencord doesn't automatically patch itself when Discord updates, so th
 ## Features
 - Patches Vencord automatically, even through Discord updates
 - VencordInstaller.app can patch Vencord without any user interaction, unlike the official installer
-    - This is due to modifications made to the installer source.
+    - This is due to modifications made to the installer source. All references to UI in cli.go have been removed for optimization purposes.
 - Notifications are used to communicate success, failure, and errors
 - Very efficient, with <=0.1% of CPU and <5MB of RAM being used at idle
 
