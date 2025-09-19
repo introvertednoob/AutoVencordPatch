@@ -135,10 +135,6 @@ func main() {
 
 func exitSuccess() {
 	color.HiGreen("✔ Success!")
-	err := cmd.Run()
-	if err != nil {
-		panic(err)
-	}
 	os.Exit(0)
 }
 
